@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmevvd2tsl5dy"]
+
+[ext_resource type="Script" path="res://Dynamic/PlatformBase.gd" id="1_4d8kg"]
+[ext_resource type="ArrayMesh" uid="uid://diugm3pcds416" path="res://StageAssets/Mesh/Platform.obj" id="1_elgdt"]
+[ext_resource type="Texture2D" uid="uid://bhyfm4mtsul13" path="res://StageAssets/Textures/Platform/Platform_BaseColor.png" id="2_qidpl"]
+[ext_resource type="Texture2D" uid="uid://deub6if1q65oq" path="res://StageAssets/Textures/Platform/Platform_Roughness.png" id="3_rvs5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4hah"]
+albedo_texture = ExtResource("2_qidpl")
+metallic_specular = 0.01
+roughness_texture = ExtResource("3_rvs5d")
+backlight = Color(0, 0.819608, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_veejo"]
+size = Vector3(3.2, 0.735, 3.2)
+
+[sub_resource type="Animation" id="Animation_ei8tc"]
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, -1.5, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.5, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cuyyf"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(-1.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kih76"]
+_data = {
+"RESET": SubResource("Animation_ei8tc"),
+"move": SubResource("Animation_cuyyf")
+}
+
+[node name="Platform" type="Path3D"]
+script = ExtResource("1_4d8kg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+rotation_mode = 0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
+remote_path = NodePath("../../PlatformBase")
+
+[node name="PlatformBase" type="AnimatableBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlatformBase"]
+mesh = ExtResource("1_elgdt")
+surface_material_override/0 = SubResource("StandardMaterial3D_d4hah")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformBase"]
+shape = SubResource("BoxShape3D_veejo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_kih76")
+}

@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0pqactcpm8rt"]
+
+[ext_resource type="Texture2D" uid="uid://tmcgptb8215s" path="res://blood.png" id="1_c3is8"]
+[ext_resource type="Script" path="res://Particles/blood_spray/blood_spray.gd" id="2_nsees"]
+
+[sub_resource type="Curve" id="Curve_5wkbt"]
+_data = [Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jymiu"]
+curve_y = SubResource("Curve_5wkbt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28vit"]
+directional_velocity_min = 0.5
+directional_velocity_max = 2.0
+directional_velocity_curve = SubResource("CurveXYZTexture_jymiu")
+radial_velocity_min = 0.5
+radial_velocity_max = 2.0
+gravity = Vector3(0, 0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kivp5"]
+transparency = 1
+specular_mode = 1
+albedo_color = Color(0.428242, 0, 0.0364625, 1)
+albedo_texture = ExtResource("1_c3is8")
+emission = Color(0.360784, 0, 0, 1)
+backlight_enabled = true
+backlight = Color(1, 0, 0, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_t4f8n"]
+material = SubResource("StandardMaterial3D_kivp5")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 20
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_28vit")
+draw_pass_1 = SubResource("QuadMesh_t4f8n")
+script = ExtResource("2_nsees")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true

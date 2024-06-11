@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dkq7xubixmcgq"]
+
+[ext_resource type="Texture2D" uid="uid://ba1532vfa2sun" path="res://StageAssets/Textures/carpet/Carpet_Color.jpg" id="1_kpqdl"]
+[ext_resource type="Texture2D" uid="uid://d31kdqps2o3np" path="res://StageAssets/Textures/carpet/Carpet_AmbientOcclusion.jpg" id="2_q6b3y"]
+[ext_resource type="Texture2D" uid="uid://bplr0iar48hvf" path="res://StageAssets/Textures/carpet/Carpet_Displacement.jpg" id="3_fdgbo"]
+[ext_resource type="Texture2D" uid="uid://coowcervogr4s" path="res://StageAssets/Textures/carpet/Carpet_Normal.jpg" id="4_h3ued"]
+[ext_resource type="Texture2D" uid="uid://dtyw5xnqa302x" path="res://StageAssets/Textures/carpet/Carpet_Roughness.jpg" id="5_78o38"]
+
+[resource]
+albedo_color = Color(0.79, 0.1027, 0.079, 1)
+albedo_texture = ExtResource("1_kpqdl")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_78o38")
+normal_enabled = true
+normal_texture = ExtResource("4_h3ued")
+ao_enabled = true
+ao_light_affect = 0.64
+ao_texture = ExtResource("2_q6b3y")
+heightmap_enabled = true
+heightmap_scale = 0.8
+heightmap_texture = ExtResource("3_fdgbo")
+uv1_scale = Vector3(6.68, 6.68, 6.68)

@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bb1qga6t1ppxg"]
+
+[ext_resource type="Texture2D" uid="uid://dq6884j7ncoil" path="res://Player/Assets/PillBoy_BaseColor.png" id="1_cp7kp"]
+[ext_resource type="Texture2D" uid="uid://d1fgh4ayaw2kg" path="res://Player/Assets/PillBoy_Height.png" id="2_qr0ji"]
+[ext_resource type="Texture2D" uid="uid://sgxm5q6kd5bd" path="res://Player/Assets/PillBoy_Metallic.png" id="3_gol1y"]
+[ext_resource type="Texture2D" uid="uid://c68sg1at2oflc" path="res://Player/Assets/PillBoy_Normal.png" id="4_1fkac"]
+[ext_resource type="Texture2D" uid="uid://5fouvbi2yiu2" path="res://Player/Assets/PillBoy_Roughness.png" id="5_ukfm4"]
+
+[resource]
+albedo_texture = ExtResource("1_cp7kp")
+metallic = 1.0
+metallic_texture = ExtResource("3_gol1y")
+roughness_texture = ExtResource("5_ukfm4")
+normal_enabled = true
+normal_scale = 0.3
+normal_texture = ExtResource("4_1fkac")
+heightmap_scale = 3.0
+heightmap_texture = ExtResource("2_qr0ji")

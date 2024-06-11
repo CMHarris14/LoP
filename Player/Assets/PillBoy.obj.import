@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmcb1oj2p7n4j"
+path="res://.godot/imported/PillBoy.obj-cef75ea934ec23b7294cd2a9c6f11e7d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PillBoy.obj-cef75ea934ec23b7294cd2a9c6f11e7d.mesh"]
+
+source_file="res://Player/Assets/PillBoy.obj"
+dest_files=["res://.godot/imported/PillBoy.obj-cef75ea934ec23b7294cd2a9c6f11e7d.mesh", "res://.godot/imported/PillBoy.obj-cef75ea934ec23b7294cd2a9c6f11e7d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(0.3, 0.3, 0.3)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
